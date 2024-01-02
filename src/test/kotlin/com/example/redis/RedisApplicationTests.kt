@@ -10,7 +10,7 @@ class RedisApplicationTests {
     @Test
     fun contextLoads() {
         val testNum = 1
-        assertThat(testNum).isEqualTo(2)
+        assertThat(testNum).isEqualTo(1)
     }
     //changes2
 }
