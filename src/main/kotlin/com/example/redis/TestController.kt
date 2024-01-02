@@ -25,4 +25,9 @@ class TestController(
     fun getTest(): TestEntity? {
         return testRepo.findById("key1").orElseThrow()
     }
+
+    @GetMapping("/do")
+    fun sayHello(): String {
+        return "Hello"
+    }
 }

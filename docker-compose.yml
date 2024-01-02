@@ -1,0 +1,31 @@
+version: "3"
+services:
+  redis:
+#    hostname: redis1
+    container_name: redis1
+    image: redis:latest
+#    ports:
+#      - 26379:6379
+    command: redis-server --requirepass qlalfqjsgh
+#    ["redis-server", "--requirepass", "qlalfqjsgh"]
+    networks:
+      - backend
+
+
+  app:
+    build: .
+#      context: .
+#      dockerfile: Dockerfile
+#    environment:
+#      - SPRING_REDIS_HOST=redis
+#      - SPRING_REDIS_PORT=6379
+#      - SPRING_REDIS_PASSWORD=qlalfqjsgh
+    ports:
+      - 8080:8080
+    depends_on:
+      - redis
+    networks:
+      - backend
+
+networks:
+  backend:
