@@ -8,11 +8,14 @@
 name: ci
 
 on:
-  merge:
+  pull_request:
+    types: [ closed ]
     branches: [ "main" ]
 
 jobs:
-  buid:
+  buid:
+
+    if: github.event.pull_request.merged == true
 
     runs-on: ubuntu-latest
 
